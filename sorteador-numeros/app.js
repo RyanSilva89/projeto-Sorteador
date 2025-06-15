@@ -9,6 +9,15 @@ for (let i = 0; i< quantidade; i++){
 numero=obterNumeroAleatorio(de,ate);
 while(sorteados.includes(numero)){
     numero=obterNumeroAleatorio(de,ate);
+    alert("Tentando escolher um número inédito");
+    if(de<=ate){
+alert("o campo Do número deve ser inferior ao até o número");
+return
+}
+
+if(quantidade>(ate- de + 1 )){
+    alert('O campo "Quantidade" deve ser menor ou igual ao intervalo informa no campo "Do número " e "até o número".Verifique!');
+}
 }
 sorteados.push(numero);
 }
@@ -37,3 +46,7 @@ function reiniciar(){
     document.getElementById('resultado').innerHTML= ' <label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
     alterarStatusBotao();
 }
+
+
+
+

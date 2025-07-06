@@ -1,11 +1,18 @@
 function sortear(){
-    let quantidade = document.getElementById('quantidade').value;
-    let doNumero = document.getElementById('de').value;
-    let ate = document.getElementById('ate').value;
+    let quantidade = parseInt(document.getElementById('quantidade').value);
+    let doNumero = parseInt(document.getElementById('de').value);
+    let ate = parseInt(document.getElementById('ate').value);
      
-
-   alert(`Quantidade :${quantidade}`);
-   alert(`Do número :${doNumero}`); 
-   alert(`até o número :${ate}`);
+let sorteados= [];
+let numero;
+   for(let i=0; i < quantidade; i++){
+    numero= obterNumeroAleatorio(doNumero,ate);
+    sorteados.push(numero);
+   }
+   alert(sorteados);
+   
 }
 
+function obterNumeroAleatorio(min,max){
+    return Math.floor(Math.random() * (max - min +1)) + min;
+}

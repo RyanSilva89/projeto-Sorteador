@@ -2,13 +2,31 @@ function sortear(){
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let doNumero = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
-     
+    
+    //verificação
+const intervalo=  ate - doNumero + 1;
+
+   if(doNumero>ate){
+        alert("verifique se está preenchendo os campos corretamente");
+        return;
+
+    }
+   if(quantidade>intervalo){
+            alert(`Você está tentando sortear ${quantidade} números, mas o intervalo entre ${doNumero} e ${ate} só permite ${intervalo} números únicos.`);
+return;
+   }
+
+   
+  
+//Sorteio     
 let sorteados= [];
 let numero;
+
    for(let i=0; i < quantidade; i++){
     numero= obterNumeroAleatorio(doNumero,ate);
     while(sorteados.includes(numero)){
         numero = obterNumeroAleatorio (doNumero,ate);
+        
     }
     sorteados.push(numero);
    }
